@@ -1,0 +1,49 @@
+.body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: aliceblue;
+}
+
+.backgroundlogin {
+  background-color: dodgerblue;
+  margin-top: 0px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0px;
+}
+
+.login {
+  margin: auto;
+  color: white;
+}
+
+.up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.background2025 {
+  background-color: dodgerblue;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+}
+
+.textinput {
+  border-width: 0;
+  box-shadow: 0 0 4px lightgray;
+  height: 30px;
+  width: 25%;
+}
