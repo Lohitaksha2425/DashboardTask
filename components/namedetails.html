@@ -4,7 +4,8 @@
         <link rel="Stylesheet" href="../styles/style2.css">
         <link rel="Stylesheet" href="../styles/textinput.css">
     </head>
-    <body class="body">
+    <body>
+    <form class="body">
         <div class="comp">
             <div class="nd">
                 <p class="txt">Name Detail</p>
@@ -41,11 +42,28 @@
                     </div>
                     <input type="text" id="Ph" name="Ph" class="textinput">
                 </div>
+                <button type="submit">Login</button>
+
 
             </div>
             <div class="background2025">
-                <p style="color: white;font-size: 24px;">MK.</p>
+                <p id="dynamic-text" style="color: white; font-size: 24px;">MK.</p>
             </div>
         </div>
+        <script src="../javascripts/namedetails.js"></script>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nameInput = document.getElementById('Name');
+            const dynamicText = document.getElementById('dynamic-text');
+
+            nameInput.addEventListener('input', () => {
+                const firstTwoLetters = nameInput.value.slice(0, 2).toUpperCase();
+                dynamicText.textContent = firstTwoLetters ? `${firstTwoLetters}.` : 'MK';
+            });
+
+            console.log("Script Loaded");
+        });
+    </script>
     </body>
 </html>

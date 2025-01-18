@@ -44,3 +44,34 @@
   padding: 10px;
   border-radius: 20px;
 }
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  position: absolute;
+  margin-left: -70px;
+  display: block;
+}
+.errorold {
+  color: red;
+  font-size: 10px;
+  display: block;
+  margin-top: 5px;
+}
+
+.errornew {
+  color: green;
+  font-size: 10px;
+  display: block;
+  margin-top: 5px;
+}
+
+.error-active {
+  border: 2px solid red; /* Optional to highlight input fields with errors */
+}
+.errormatch {
+  color: orange;
+  font-size: 10px;
+  display: block;
+  margin-top: 5px;
+}

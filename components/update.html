@@ -3,14 +3,54 @@
 <html>
     <head>
         <link rel="Stylesheet" href="../styles/update.css">
+        <link rel="Stylesheet" href="../styles/textinput.css">
     </head>
     <body>
-        <div class="container">
+        <div class="containerBig">
             <div class="resetheadingbox">
                 <p class="resettext">Update Detail</p>
             </div>
-            <iframe src="../components/textinput.html" style="overflow: hidden;height: 100px;border: 10;width: 480px;border: 0 solid;"></iframe>
+            <div style="display: inline-block;">
+                <div class="container">
+                    <div class="split">
+                        <label  for="Name">Name</label>
+                        <label  for="Name">:</label>
+                    </div>
+                    <input type="text" id="Name" name="Name" class="textinput">
+                </div>
+            </div>
+    
+            <div style="display: inline-block;">
+                <div class="container">
+                    <div class="split">
+                        <label  for="Email">Email</label>
+                        <label  for="Email">:</label>
+                    </div>
+                    <input type="text" id="Email" name="Email" class="textinput">
+                </div>
+            </div>
+    
+            <div style="display: inline-block;">
+                <div class="container">
+                    <div class="split"> 
+                        <label  for="Design">Design</label>
+                        <label  for="Design">:</label>
+                    </div>
+                    <input type="text" id="Design" name="Design" class="textinput">
+                </div>
+            </div>
+    
+            <div style="display: inline-block;">
+                <div class="container">
+                    <div class="split"> 
+                        <label  for="Ph">Ph</label>
+                        <label  for="Ph">:</label>
+                    </div>
+                    <input type="text" id="Ph" name="Ph" class="textinput">
+                </div>
+            </div>
             <button type="button" value="Update" class="updatebutton">Update</button>
         </div>
+        <script src="../javascripts/update.js"></script>
     </body>
 </html>
