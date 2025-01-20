@@ -4,10 +4,22 @@ const emailinput = document.getElementById("Email");
 const designinput = document.getElementById("Design");
 const phinput = document.getElementById("Ph");
 
+const displaySection = document.getElementById("displaySection");
+
+document.addEventListener("DOMContentLoaded", function () {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  if (userData) {
+    //displayUserDetails(userData);
+    document.getElementById("Name").value = userData.name;
+    document.getElementById("Email").value = userData.email;
+    document.getElementById("Design").value = userData.design;
+    document.getElementById("Ph").value = userData.ph;
+  }
+});
+
 namedetails.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  // Get input values
   const name = nameinput.value.trim();
   const email = emailinput.value.trim();
   const design = designinput.value.trim();
@@ -16,7 +28,6 @@ namedetails.addEventListener("submit", function (event) {
   clearErrors();
   let isValid = true;
 
-  // Validate inputs
   if (name === "") {
     showError(nameinput, "Name is Required");
     isValid = false;
@@ -38,21 +49,17 @@ namedetails.addEventListener("submit", function (event) {
   }
 
   if (isValid) {
-    // Store data in localStorage
-    localStorage.setItem(
-      "userData",
-      JSON.stringify({ name, email, design, ph })
-    );
+    const userData = { name, email, design, ph };
+    localStorage.setItem("userData", JSON.stringify(userData));
     alert("Form submitted and data saved!");
 
-    // Redirect to the update page (optional)
-    window.location.href = "update.html";
+    displayUserDetails(userData);
+    namedetails.reset();
   }
 });
 
-// Helper functions
 function showError(input, message) {
-  clearErrors(input); // Clear previous errors for this input
+  clearErrors(input);
 
   const errorSpan = document.createElement("span");
   errorSpan.classList.add("error");
@@ -89,4 +96,24 @@ function clearErrors(input = null) {
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+function displayUserDetails(userData) {
+  displaySection.innerHTML = "";
+
+  const userDetailsContainer = document.createElement("div");
+  userDetailsContainer.style.padding = "10px";
+  userDetailsContainer.style.backgroundColor = "#f0f0f0";
+  userDetailsContainer.style.border = "1px solid #ccc";
+  userDetailsContainer.style.borderRadius = "5px";
+  userDetailsContainer.style.marginTop = "20px";
+
+  userDetailsContainer.innerHTML = `
+    <p><strong>Name:</strong> ${userData.name}</p>
+    <p><strong>Email:</strong> ${userData.email}</p>
+    <p><strong>Designation:</strong> ${userData.design}</p>
+    <p><strong>Phone:</strong> ${userData.ph}</p>
+  `;
+
+  displaySection.appendChild(userDetailsContainer);
 }

@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   if (userData) {
-    // Populate the form fields with stored data
     document.getElementById("Name").value = userData.name;
     document.getElementById("Email").value = userData.email;
+
     document.getElementById("Design").value = userData.design;
     document.getElementById("Ph").value = userData.ph;
   } else {
