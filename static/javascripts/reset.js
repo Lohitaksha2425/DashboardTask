@@ -31,9 +31,9 @@ reset.addEventListener("submit", function (event) {
     isValid = false;
   }
 
-  // Submit the form if all validations pass
+  // Submit the form via AJAX if all validations pass
   if (isValid) {
-    console.log("Form Submitted Successfully");
+    submitForm(oldpass, newpass); // Call the function to send the data to the server
   }
 });
 
@@ -78,4 +78,26 @@ function clearErrors(input = null) {
       parent.classList.remove("error-active");
     });
   }
+}
+
+function submitForm(oldpass, newpass) {
+  // Use fetch to send data to the server (Flask)
+  fetch("/reset", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `oldpassword=${encodeURIComponent(
+      oldpass
+    )}&newpassword=${encodeURIComponent(newpass)}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      alert(data); // Show server response (confirmation message)
+      reset.reset(); // Reset the form fields
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("An error occurred while saving your password.");
+    });
 }
